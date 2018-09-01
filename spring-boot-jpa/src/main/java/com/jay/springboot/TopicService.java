@@ -1,12 +1,10 @@
-package demo.topic.service;
+package com.jay.springboot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
-import demo.topic.Topic;
 
 /**
  * This class is annotated with @Service, hence spring will create ONLY 1 instance

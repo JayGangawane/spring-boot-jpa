@@ -1,4 +1,4 @@
-package demo.jpa.topic.service;
+package com.jay.jpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,27 +6,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import demo.jpa.topic.TopicEntity;
-import demo.jpa.topic.repository.TopicRepository;
-
 @Service
-public class TopicEntityService {
+public class TopicService {
 	
 	@Autowired
 	private TopicRepository topicRepository;
 	
-	public List<TopicEntity> getAllTopics() {
-		List<TopicEntity> entityList = new ArrayList<>();
+	public List<Topic> getAllTopics() {
+		List<Topic> entityList = new ArrayList<>();
 		topicRepository.findAll()
 		.forEach(entityList::add);
 		return entityList;
 	}
 	
-	public void addTopic(TopicEntity topic) {
+	public void addTopic(Topic topic) {
 		topicRepository.save(topic);
 	}
 	
-	public TopicEntity getTopic(String id) {
+	public Topic getTopic(String id) {
 		return topicRepository.findById(id).get();
 	}
 
@@ -34,7 +31,7 @@ public class TopicEntityService {
 	 * acts as Upsert i.e. add if not present, else update if present
 	 * @param topic
 	 */
-	public void updateTopic(TopicEntity topic) {
+	public void updateTopic(Topic topic) {
 		topicRepository.save(topic);
 	}
 

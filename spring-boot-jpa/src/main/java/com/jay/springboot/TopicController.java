@@ -1,4 +1,4 @@
-package demo.topic.controller;
+package com.jay.springboot;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import demo.topic.Topic;
-import demo.topic.service.TopicService;
 
 @RestController
 @RequestMapping("/boot")

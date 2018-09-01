@@ -1,4 +1,4 @@
-package demo.jpa.course.controller;
+package com.jay.jpa;
 
 import java.util.List;
 
@@ -9,19 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.jpa.course.CourseEntity;
-import demo.jpa.course.service.CourseEntityService;
-import demo.jpa.topic.TopicEntity;
-
 @RestController
 @RequestMapping("/jpa/topics/{topicId}")
-public class CourseEntityController {
+public class CourseController {
 	
 	@Autowired
-	private CourseEntityService courseService;
+	private CourseService courseService;
 
 	@RequestMapping("/courses")
-	public List<CourseEntity> getCourses(@PathVariable String topicId){
+	public List<Course> getCourses(@PathVariable String topicId){
 		return courseService.getAllCourses(topicId);
 	}
 	
@@ -34,19 +30,19 @@ public class CourseEntityController {
 	 * @return
 	 */
 	@RequestMapping("/courses/{id}")
-	public CourseEntity getCourseWithId(@PathVariable String id) {
+	public Course getCourseWithId(@PathVariable String id) {
 		return courseService.getCourse(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/courses")
-	public void addCourse(@RequestBody CourseEntity course, @PathVariable String topicId) {
-		course.setTopic(new TopicEntity(topicId, "", ""));
+	public void addCourse(@RequestBody Course course, @PathVariable String topicId) {
+		course.setTopic(new Topic(topicId, "", ""));
 		courseService.addCourse(course);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/courses")
-	public void updateCourse(@RequestBody CourseEntity course, @PathVariable String topicId) {
-		course.setTopic(new TopicEntity(topicId, "", ""));
+	public void updateCourse(@RequestBody Course course, @PathVariable String topicId) {
+		course.setTopic(new Topic(topicId, "", ""));
 		courseService.updateCourse(course);
 	}
 	

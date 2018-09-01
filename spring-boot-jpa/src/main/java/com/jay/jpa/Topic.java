@@ -1,4 +1,4 @@
-package demo.jpa.topic;
+package com.jay.jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,13 +14,13 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class TopicEntity {
-	public TopicEntity() {
+public class Topic {
+	public Topic() {
 	}
 	public String getId() {
 		return id;
 	}
-	public TopicEntity(String id, String name, String description) {
+	public Topic(String id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;

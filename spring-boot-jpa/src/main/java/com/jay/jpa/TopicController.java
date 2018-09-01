@@ -1,4 +1,4 @@
-package demo.jpa.topic.controller;
+package com.jay.jpa;
 
 import java.util.List;
 
@@ -9,18 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import demo.jpa.topic.TopicEntity;
-import demo.jpa.topic.service.TopicEntityService;
-
 @RestController
 @RequestMapping("/jpa")
-public class TopicEntityController {
+public class TopicController {
 	
 	@Autowired
-	private TopicEntityService topicService;
+	private TopicService topicService;
 
 	@RequestMapping("/topics")
-	public List<TopicEntity> getTopics(){
+	public List<Topic> getTopics(){
 		return topicService.getAllTopics();
 	}
 	
@@ -33,17 +30,17 @@ public class TopicEntityController {
 	 * @return
 	 */
 	@RequestMapping("/topics/{id}")
-	public TopicEntity getTopicWithId(@PathVariable String id) {
+	public Topic getTopicWithId(@PathVariable String id) {
 		return topicService.getTopic(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/topics")
-	public void addTopic(@RequestBody TopicEntity topic) {
+	public void addTopic(@RequestBody Topic topic) {
 		topicService.addTopic(topic);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/topics")
-	public void updateTopic(@RequestBody TopicEntity topic) {
+	public void updateTopic(@RequestBody Topic topic) {
 		topicService.updateTopic(topic);
 	}
 	

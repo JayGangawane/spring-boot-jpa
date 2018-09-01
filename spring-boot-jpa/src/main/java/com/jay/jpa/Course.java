@@ -1,10 +1,8 @@
-package demo.jpa.course;
+package com.jay.jpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import demo.jpa.topic.TopicEntity;
 
 /**
  * @Entity tells JPA to create a table with fields given as instance variables
@@ -17,31 +15,31 @@ import demo.jpa.topic.TopicEntity;
  *
  */
 @Entity
-public class CourseEntity {
+public class Course {
 	
 	@Id
 	private String id;
 	private String name;
 	private String description;
 	@ManyToOne
-	private TopicEntity topic;
+	private Topic topic;
 	
-	public CourseEntity() {
+	public Course() {
 	}
 
-	public CourseEntity(String id, String name, String description, String topicId) {
+	public Course(String id, String name, String description, String topicId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.topic = new TopicEntity(topicId, "", "");
+		this.topic = new Topic(topicId, "", "");
 	}
 	
-	public TopicEntity getTopic() {
+	public Topic getTopic() {
 		return topic;
 	}
 
-	public void setTopic(TopicEntity topic) {
+	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
 

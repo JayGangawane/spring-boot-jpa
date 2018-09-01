@@ -1,10 +1,8 @@
-package demo.jpa.course.repository;
+package com.jay.jpa;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-
-import demo.jpa.course.CourseEntity;
 
 /**
  * CrudRepository is interface given by spring data that provides standard 
@@ -22,7 +20,7 @@ import demo.jpa.course.CourseEntity;
  *
  */
 
-public interface CourseRepository extends CrudRepository<CourseEntity, String> {
+public interface CourseRepository extends CrudRepository<Course, String> {
 
 	/**
 	 * here spring jpa automatically identifies what is the usecase based on 
@@ -34,7 +32,7 @@ public interface CourseRepository extends CrudRepository<CourseEntity, String> {
 	 * @param name
 	 * @return
 	 */
-	public List<CourseEntity> findByName(String name);
+	public List<Course> findByName(String name);
 	
 	/**
 	 * this method will also be automatically implemented by spring jpa!!
@@ -43,7 +41,7 @@ public interface CourseRepository extends CrudRepository<CourseEntity, String> {
 	 * @param foo
 	 * @return
 	 */
-	public List<CourseEntity> findByDescription(String anythinggoeshere);
+	public List<Course> findByDescription(String anythinggoeshere);
 	
 	/**
 	 * IMPORTANT!! PAY SPECIAL ATTENTION HERE ..
@@ -54,5 +52,5 @@ public interface CourseRepository extends CrudRepository<CourseEntity, String> {
 	 * @param anythinggoeshere
 	 * @return
 	 */
-	public List<CourseEntity> findByTopicId(String anythinggoeshere);
+	public List<Course> findByTopicId(String anythinggoeshere);
 }

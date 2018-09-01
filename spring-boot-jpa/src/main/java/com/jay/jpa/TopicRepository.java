@@ -1,8 +1,6 @@
-package demo.jpa.topic.repository;
+package com.jay.jpa;
 
 import org.springframework.data.repository.CrudRepository;
-
-import demo.jpa.topic.TopicEntity;
 
 /**
  * CrudRepository is interface given by spring data that provides standard 
@@ -20,7 +18,7 @@ import demo.jpa.topic.TopicEntity;
  *
  */
 
-public interface TopicRepository extends CrudRepository<TopicEntity, String> {
+public interface TopicRepository extends CrudRepository<Topic, String> {
 
 
 }

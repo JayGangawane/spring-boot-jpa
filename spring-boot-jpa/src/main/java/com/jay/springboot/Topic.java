@@ -1,4 +1,4 @@
-package demo.topic;
+package com.jay.springboot;
 
 public class Topic {
 	public String getId() {
