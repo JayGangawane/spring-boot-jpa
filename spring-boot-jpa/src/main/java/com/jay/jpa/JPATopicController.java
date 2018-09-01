@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/jpa")
-public class TopicController {
+public class JPATopicController {
 	
 	@Autowired
-	private TopicService topicService;
+	private JPATopicService topicService;
 
 	@RequestMapping("/topics")
 	public List<Topic> getTopics(){
